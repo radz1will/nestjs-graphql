@@ -1,0 +1,26 @@
+version: '3'
+services:
+  adminer:
+    image: adminer
+    container_name: developmentelopment-adminer
+    restart: always
+    ports:
+      - 8080:8080
+
+  project-development-db:
+    image: mysql:latest
+    container_name: project-development-db
+    restart: always
+    environment:
+      - MYSQL_ROOT_PASSWORD=jimber
+      - MYSQL_DATABASE=development-db
+    volumes:
+      - db_data_development:/var/lib/mysql
+    healthcheck:
+      test: ['CMD', 'mysqladmin', 'ping', '-h', 'localhost']
+      timeout: 10s
+      retries: 10
+    network_mode: "host"
+
+volumes:
+  db_data_development:

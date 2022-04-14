@@ -1,0 +1,50 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Driver {
+  id: Float!
+  fullName: String!
+}
+
+type Car {
+  id: Float!
+  model: String!
+  brand: String!
+  driver: [Driver!]!
+}
+
+type Query {
+  getAllCars: [Car]!
+  getCarById(input: FindIdInput!): [Car]!
+  getAllDrivers: [Driver]!
+}
+
+input FindIdInput {
+  id: Float!
+}
+
+type Mutation {
+  """This resolver update media"""
+  createNewCar(input: CreateCarInput!): Car!
+
+  """This resolver car binding driver"""
+  bindingCarWithDriver(input: CarBindingDriverInput!): Car!
+
+  """This resolver update media"""
+  createNewDriver(input: CreateDriverInput!): Driver!
+}
+
+input CreateCarInput {
+  model: String!
+  brand: String!
+}
+
+input CarBindingDriverInput {
+  car_id: String!
+  driver_id: String!
+}
+
+input CreateDriverInput {
+  fullName: String!
+}
