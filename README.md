@@ -27,10 +27,20 @@
 [Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
 
 ## Installation
-
+nodeJs version 16
 ```bash
 $ npm install
 ```
+
+## database
+
+Didn't have time to make env for db. db configs moved to app module.
+
+Credit
+
+username: "root",
+password: '',
+database: 'testproject',
 
 ## Running the app
 
